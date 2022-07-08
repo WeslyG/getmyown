@@ -1,0 +1,18 @@
+{
+  "name": "getmyown",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "ts-node main.ts",
+    "build": "docker buildx build --platform linux/arm64 --build-arg TARGETARCH=arm64 -t registry.weslyg.ru/getmyown:1.0.0-arm .",
+    "build:x86": "docker build --build-arg TARGETARCH=amd64 -t registry.weslyg.ru/getmyown:1.0.0 ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "playwright": "^1.23.2"
+  }
+}

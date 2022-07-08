@@ -1,0 +1,15 @@
+sudo: required
+services:
+  - docker
+arch:
+  - arm64
+
+before_script:
+  - docker login -u "${REGISTRY_USER}" -p "${REGISTRY_PASS}" "https://registry.weslyg.ru"
+
+script:
+  - docker build --build-arg TARGETARCH=arm64 -t registry.weslyg.ru/getmyown-arm:latest .
+  - docker push registry.weslyg.ru/getmyown-arm:latest"
+
+after_script:
+  - docker logout https://registry.weslyg.ru
